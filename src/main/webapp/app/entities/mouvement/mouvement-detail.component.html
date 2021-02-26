@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mouvement">
+            <h2><span>Mouvement</span> {{ mouvement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Date Mvt</span></dt>
+                <dd>
+                    <span>{{ mouvement.dateMvt }}</span>
+                </dd>
+                <dt><span>Type Mvt</span></dt>
+                <dd>
+                    <span>{{ mouvement.typeMvt }}</span>
+                </dd>
+                <dt><span>Qte Mvt</span></dt>
+                <dd>
+                    <span>{{ mouvement.qteMvt }}</span>
+                </dd>
+                <dt><span>Ancien Qte</span></dt>
+                <dd>
+                    <span>{{ mouvement.ancienQte }}</span>
+                </dd>
+                <dt><span>Nv Qte</span></dt>
+                <dd>
+                    <span>{{ mouvement.nvQte }}</span>
+                </dd>
+                <dt><span>Ancien Prix</span></dt>
+                <dd>
+                    <span>{{ mouvement.ancienPrix }}</span>
+                </dd>
+                <dt><span>Nv Prix</span></dt>
+                <dd>
+                    <span>{{ mouvement.nvPrix }}</span>
+                </dd>
+                <dt><span>Prix</span></dt>
+                <dd>
+                    <span>{{ mouvement.prix }}</span>
+                </dd>
+                <dt><span>Produit</span></dt>
+                <dd>
+                    <div *ngIf="mouvement.produitId">
+                        <a [routerLink]="['/produit', mouvement.produitId, 'view']">{{ mouvement.produitId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mouvement', mouvement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

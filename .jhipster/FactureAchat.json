@@ -1,0 +1,54 @@
+{
+  "name": "FactureAchat",
+  "fields": [
+    {
+      "fieldName": "dateFacture",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "totalHT",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalTVA",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalTTC",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalRemise",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalNet",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "timbreFiscale",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "reglementAchat",
+      "otherEntityRelationshipName": "factureAchat",
+      "relationshipName": "reglementAchat",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20210226200323",
+  "entityTableName": "facture_achat",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -47,6 +47,34 @@ public class CacheConfiguration {
             createCache(cm, com.werghemmi.gc.domain.User.class.getName());
             createCache(cm, com.werghemmi.gc.domain.Authority.class.getName());
             createCache(cm, com.werghemmi.gc.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.werghemmi.gc.domain.Produit.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.Produit.class.getName() + ".mouvements");
+            createCache(cm, com.werghemmi.gc.domain.Produit.class.getName() + ".detaisDevis");
+            createCache(cm, com.werghemmi.gc.domain.Produit.class.getName() + ".detaisCommandes");
+            createCache(cm, com.werghemmi.gc.domain.Produit.class.getName() + ".detaisVentes");
+            createCache(cm, com.werghemmi.gc.domain.Fournisseur.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.Fournisseur.class.getName() + ".commandes");
+            createCache(cm, com.werghemmi.gc.domain.Client.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.Client.class.getName() + ".ventes");
+            createCache(cm, com.werghemmi.gc.domain.Categorie.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.Categorie.class.getName() + ".produits");
+            createCache(cm, com.werghemmi.gc.domain.Categorie.class.getName() + ".taxes");
+            createCache(cm, com.werghemmi.gc.domain.Taxe.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.Taxe.class.getName() + ".categories");
+            createCache(cm, com.werghemmi.gc.domain.Devis.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.Devis.class.getName() + ".detaisDevis");
+            createCache(cm, com.werghemmi.gc.domain.DetaisDevis.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.DetaisCommande.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.Commande.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.Commande.class.getName() + ".detaisCommandes");
+            createCache(cm, com.werghemmi.gc.domain.FactureAchat.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.ReglementAchat.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.DetaisVente.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.Vente.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.Vente.class.getName() + ".detaisVentes");
+            createCache(cm, com.werghemmi.gc.domain.FactureVente.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.ReglementVente.class.getName());
+            createCache(cm, com.werghemmi.gc.domain.Mouvement.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

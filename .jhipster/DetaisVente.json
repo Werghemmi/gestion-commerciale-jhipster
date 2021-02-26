@@ -1,0 +1,40 @@
+{
+  "name": "DetaisVente",
+  "fields": [
+    {
+      "fieldName": "qteProduit",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "prix",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "produit",
+      "otherEntityRelationshipName": "detaisVente",
+      "relationshipName": "produit",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "vente",
+      "otherEntityRelationshipName": "detaisVente",
+      "relationshipName": "vente",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210226200523",
+  "entityTableName": "detais_vente",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Devis",
+  "fields": [
+    {
+      "fieldName": "dateDevis",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "detaisDevis",
+      "otherEntityRelationshipName": "devis",
+      "relationshipName": "detaisDevis"
+    }
+  ],
+  "changelogDate": "20210226195923",
+  "entityTableName": "devis",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-produit-heading">Create or edit a Produit</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_prixAchat">Prix Achat</label>
+                    <input type="number" class="form-control" name="prixAchat" id="field_prixAchat"
+                           formControlName="prixAchat"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_prixVente">Prix Vente</label>
+                    <input type="number" class="form-control" name="prixVente" id="field_prixVente"
+                           formControlName="prixVente"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_qteStock">Qte Stock</label>
+                    <input type="number" class="form-control" name="qteStock" id="field_qteStock"
+                           formControlName="qteStock"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_marge">Marge</label>
+                    <input type="number" class="form-control" name="marge" id="field_marge"
+                           formControlName="marge"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_typeMarge">Type Marge</label>
+                    <select class="form-control" name="typeMarge" formControlName="typeMarge" id="field_typeMarge">
+                        <option value="POURCENTAGE">POURCENTAGE</option>
+                        <option value="PRIX_FIXE">PRIX_FIXE</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_categorie">Categorie</label>
+                    <select class="form-control" id="field_categorie" name="categorie" formControlName="categorieId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categorieOption.id" *ngFor="let categorieOption of categories; trackBy: trackById">{{ categorieOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span>Ventes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vente" [routerLink]="['/vente/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Vente
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="ventes?.length === 0">
+        <span>No ventes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="ventes && ventes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCommande"><span>Date Commande</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="factureVenteId"><span>Facture Vente</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="clientId"><span>Client</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vente of ventes ;trackBy: trackId">
+                    <td><a [routerLink]="['/vente', vente.id, 'view']">{{ vente.id }}</a></td>
+                    <td>{{ vente.dateCommande | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="vente.factureVenteId">
+                            <a [routerLink]="['/facture-vente', vente.factureVenteId , 'view']" >{{ vente.factureVenteId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="vente.clientId">
+                            <a [routerLink]="['/client', vente.clientId , 'view']" >{{ vente.clientId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/vente', vente.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/vente', vente.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(vente)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="ventes && ventes.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

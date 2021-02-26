@@ -1,0 +1,43 @@
+{
+  "name": "Vente",
+  "fields": [
+    {
+      "fieldName": "dateCommande",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "factureVente",
+      "otherEntityRelationshipName": "vente",
+      "relationshipName": "factureVente",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "detaisVente",
+      "otherEntityRelationshipName": "vente",
+      "relationshipName": "detaisVente"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "vente",
+      "relationshipName": "client",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210226200623",
+  "entityTableName": "vente",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

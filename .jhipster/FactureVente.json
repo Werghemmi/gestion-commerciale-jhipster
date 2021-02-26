@@ -1,0 +1,54 @@
+{
+  "name": "FactureVente",
+  "fields": [
+    {
+      "fieldName": "dateFacture",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "totalHT",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalTVA",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalTTC",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalRemise",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalNet",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "timbreFiscale",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "reglementVente",
+      "otherEntityRelationshipName": "factureVente",
+      "relationshipName": "reglementVente",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20210226200723",
+  "entityTableName": "facture_vente",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

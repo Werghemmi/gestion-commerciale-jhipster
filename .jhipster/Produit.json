@@ -1,0 +1,78 @@
+{
+  "name": "Produit",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prixAchat",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "prixVente",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "qteStock",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "marge",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "typeMarge",
+      "fieldType": "Type",
+      "fieldValues": "POURCENTAGE,PRIX_FIXE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "mouvement",
+      "otherEntityRelationshipName": "produit",
+      "relationshipName": "mouvement"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "detaisDevis",
+      "otherEntityRelationshipName": "produit",
+      "relationshipName": "detaisDevis"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "detaisCommande",
+      "otherEntityRelationshipName": "produit",
+      "relationshipName": "detaisCommande"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "detaisVente",
+      "otherEntityRelationshipName": "produit",
+      "relationshipName": "detaisVente"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "categorie",
+      "otherEntityRelationshipName": "produit",
+      "relationshipName": "categorie",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210226195423",
+  "entityTableName": "produit",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

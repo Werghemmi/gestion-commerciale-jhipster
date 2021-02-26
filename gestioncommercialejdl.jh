@@ -1,0 +1,161 @@
+enum Type {
+    POURCENTAGE,
+    PRIX_FIXE
+}
+
+enum TypeReglement {
+    VIREMENT,
+    CHEQUE
+}
+
+enum TypeMouvement {
+    ACHAT,
+    VENTE
+}
+
+entity Produit {
+    nom String,
+    description String,
+    prixAchat Float,
+    prixVente Float,
+    qteStock Float,
+    marge Float,
+    typeMarge Type
+}
+
+entity Fournisseur {
+    nom String,
+    adresse String,
+    telephone Integer,
+    email String,
+    matriculeFiscale String
+}
+
+entity Client {
+    nom String,
+    adresse String,
+    telephone Integer,
+    email String,
+    matriculeFiscale String
+}
+
+entity Categorie {
+    titre String,
+}
+
+entity Taxe {
+    nomTaxe String,
+    taux Float,
+    typeTaxe Type
+}
+
+entity Devis {
+    dateDevis Instant,
+}
+
+entity DetaisDevis {
+    qteProduit Float,
+    totalHT Float,
+    totalTVA Float,
+    totalTTC Float,
+}
+
+entity DetaisCommande {
+    qteProduit Float,
+    prix Float
+}
+
+entity Commande {
+    dateCommande Instant,
+}
+
+entity FactureAchat {
+    dateFacture Instant,
+    totalHT Float,
+    totalTVA Float,
+    totalTTC Float,
+    totalRemise Float,
+    totalNet Float,
+    timbreFiscale Boolean
+}
+
+entity ReglementAchat {
+    dateReglement Instant,
+    typeReglement TypeReglement,
+}
+
+entity DetaisVente {
+    qteProduit Float,
+    prix Float
+}
+
+entity Vente {
+    dateCommande Instant,
+}
+
+entity FactureVente {
+    dateFacture Instant,
+    totalHT Float,
+    totalTVA Float,
+    totalTTC Float,
+    totalRemise Float,
+    totalNet Float,
+    timbreFiscale Boolean
+}
+
+entity ReglementVente {
+    dateReglement Instant,
+    typeReglement TypeReglement,
+}
+
+entity Mouvement {
+    dateMvt Instant,
+    typeMvt TypeMouvement,
+    qteMvt Float,
+    ancienQte Float,
+    nvQte Float,
+    ancienPrix Float,
+    nvPrix Float,
+    prix Float
+}
+
+relationship ManyToMany {
+	Categorie to Taxe
+}
+
+relationship OneToMany {
+
+    
+    Categorie to Produit{categorie}
+
+    Produit to Mouvement{produit}
+    Produit to DetaisDevis{produit}
+    Produit to DetaisCommande{produit}
+    Produit to DetaisVente{produit}
+
+    Fournisseur to Commande{fournisseur}
+    Client to Vente{client}
+
+    Devis to DetaisDevis{devis}
+    Commande to DetaisCommande{commande}
+    Vente to DetaisVente{vente}
+
+}
+
+relationship OneToOne {
+
+    Commande{FactureAchat} to FactureAchat,
+    FactureAchat{reglementAchat} to ReglementAchat,
+
+    Vente{FactureVente} to FactureVente,
+    FactureVente{reglementVente} to ReglementVente,
+
+}
+
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+paginate * with pagination
+service * with serviceImpl
+// Set service options to all except few
+// service all with serviceImp

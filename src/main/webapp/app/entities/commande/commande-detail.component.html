@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commande">
+            <h2><span>Commande</span> {{ commande.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Date Commande</span></dt>
+                <dd>
+                    <span>{{ commande.dateCommande }}</span>
+                </dd>
+                <dt><span>Facture Achat</span></dt>
+                <dd>
+                    <div *ngIf="commande.factureAchatId">
+                        <a [routerLink]="['/facture-achat', commande.factureAchatId, 'view']">{{ commande.factureAchatId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Fournisseur</span></dt>
+                <dd>
+                    <div *ngIf="commande.fournisseurId">
+                        <a [routerLink]="['/fournisseur', commande.fournisseurId, 'view']">{{ commande.fournisseurId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commande', commande.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

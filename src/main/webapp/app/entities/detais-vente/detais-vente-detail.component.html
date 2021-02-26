@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="detaisVente">
+            <h2><span>Detais Vente</span> {{ detaisVente.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Qte Produit</span></dt>
+                <dd>
+                    <span>{{ detaisVente.qteProduit }}</span>
+                </dd>
+                <dt><span>Prix</span></dt>
+                <dd>
+                    <span>{{ detaisVente.prix }}</span>
+                </dd>
+                <dt><span>Produit</span></dt>
+                <dd>
+                    <div *ngIf="detaisVente.produitId">
+                        <a [routerLink]="['/produit', detaisVente.produitId, 'view']">{{ detaisVente.produitId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Vente</span></dt>
+                <dd>
+                    <div *ngIf="detaisVente.venteId">
+                        <a [routerLink]="['/vente', detaisVente.venteId, 'view']">{{ detaisVente.venteId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/detais-vente', detaisVente.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

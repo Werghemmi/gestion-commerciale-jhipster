@@ -1,0 +1,48 @@
+{
+  "name": "DetaisDevis",
+  "fields": [
+    {
+      "fieldName": "qteProduit",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalHT",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalTVA",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "totalTTC",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "produit",
+      "otherEntityRelationshipName": "detaisDevis",
+      "relationshipName": "produit",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "devis",
+      "otherEntityRelationshipName": "detaisDevis",
+      "relationshipName": "devis",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210226200023",
+  "entityTableName": "detais_devis",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

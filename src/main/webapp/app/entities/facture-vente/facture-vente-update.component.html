@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-facture-vente-heading">Create or edit a Facture Vente</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateFacture">Date Facture</label>
+                    <div class="d-flex">
+                        <input id="field_dateFacture" type="datetime-local" class="form-control" name="dateFacture" formControlName="dateFacture" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_totalHT">Total HT</label>
+                    <input type="number" class="form-control" name="totalHT" id="field_totalHT"
+                           formControlName="totalHT"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_totalTVA">Total TVA</label>
+                    <input type="number" class="form-control" name="totalTVA" id="field_totalTVA"
+                           formControlName="totalTVA"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_totalTTC">Total TTC</label>
+                    <input type="number" class="form-control" name="totalTTC" id="field_totalTTC"
+                           formControlName="totalTTC"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_totalRemise">Total Remise</label>
+                    <input type="number" class="form-control" name="totalRemise" id="field_totalRemise"
+                           formControlName="totalRemise"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_totalNet">Total Net</label>
+                    <input type="number" class="form-control" name="totalNet" id="field_totalNet"
+                           formControlName="totalNet"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_timbreFiscale">Timbre Fiscale</label>
+                    <input type="checkbox" class="form-control" name="timbreFiscale" id="field_timbreFiscale"
+                           formControlName="timbreFiscale"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_reglementVente">Reglement Vente</label>
+                    <select class="form-control" id="field_reglementVente" name="reglementVente" formControlName="reglementVenteId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reglementVenteOption.id" *ngFor="let reglementVenteOption of reglementventes; trackBy: trackById">{{ reglementVenteOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

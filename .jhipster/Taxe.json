@@ -1,0 +1,39 @@
+{
+  "name": "Taxe",
+  "fields": [
+    {
+      "fieldName": "nomTaxe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "taux",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "typeTaxe",
+      "fieldType": "Type",
+      "fieldValues": "POURCENTAGE,PRIX_FIXE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "categorie",
+      "otherEntityRelationshipName": "taxe",
+      "relationshipName": "categorie",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20210226195823",
+  "entityTableName": "taxe",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

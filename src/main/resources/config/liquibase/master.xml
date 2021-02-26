@@ -14,7 +14,33 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226195423_added_entity_Produit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226195523_added_entity_Fournisseur.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226195623_added_entity_Client.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226195723_added_entity_Categorie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226195823_added_entity_Taxe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226195923_added_entity_Devis.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200023_added_entity_DetaisDevis.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200123_added_entity_DetaisCommande.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200223_added_entity_Commande.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200323_added_entity_FactureAchat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200423_added_entity_ReglementAchat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200523_added_entity_DetaisVente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200623_added_entity_Vente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200723_added_entity_FactureVente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200823_added_entity_ReglementVente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200923_added_entity_Mouvement.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20210226195423_added_entity_constraints_Produit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226195723_added_entity_constraints_Categorie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200023_added_entity_constraints_DetaisDevis.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200123_added_entity_constraints_DetaisCommande.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200223_added_entity_constraints_Commande.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200323_added_entity_constraints_FactureAchat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200523_added_entity_constraints_DetaisVente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200623_added_entity_constraints_Vente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200723_added_entity_constraints_FactureVente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226200923_added_entity_constraints_Mouvement.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
