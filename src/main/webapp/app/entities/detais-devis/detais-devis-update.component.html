@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-detais-devis-heading">Create or edit a Detais Devis</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_qteProduit">Qte Produit</label>
+                    <input type="number" class="form-control" name="qteProduit" id="field_qteProduit"
+                           formControlName="qteProduit"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_totalHT">Total HT</label>
+                    <input type="number" class="form-control" name="totalHT" id="field_totalHT"
+                           formControlName="totalHT"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_totalTVA">Total TVA</label>
+                    <input type="number" class="form-control" name="totalTVA" id="field_totalTVA"
+                           formControlName="totalTVA"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_totalTTC">Total TTC</label>
+                    <input type="number" class="form-control" name="totalTTC" id="field_totalTTC"
+                           formControlName="totalTTC"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_produit">Produit</label>
+                    <select class="form-control" id="field_produit" name="produit" formControlName="produitId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="produitOption.id" *ngFor="let produitOption of produits; trackBy: trackById">{{ produitOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_devis">Devis</label>
+                    <select class="form-control" id="field_devis" name="devis" formControlName="devisId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="devisOption.id" *ngFor="let devisOption of devis; trackBy: trackById">{{ devisOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

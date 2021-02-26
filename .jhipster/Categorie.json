@@ -1,0 +1,36 @@
+{
+  "name": "Categorie",
+  "fields": [
+    {
+      "fieldName": "titre",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "produit",
+      "otherEntityRelationshipName": "categorie",
+      "relationshipName": "produit"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "taxe",
+      "otherEntityRelationshipName": "categorie",
+      "relationshipName": "taxe",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20210226195723",
+  "entityTableName": "categorie",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

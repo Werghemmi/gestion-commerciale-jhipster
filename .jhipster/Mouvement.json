@@ -1,0 +1,58 @@
+{
+  "name": "Mouvement",
+  "fields": [
+    {
+      "fieldName": "dateMvt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "typeMvt",
+      "fieldType": "TypeMouvement",
+      "fieldValues": "ACHAT,VENTE"
+    },
+    {
+      "fieldName": "qteMvt",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "ancienQte",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "nvQte",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "ancienPrix",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "nvPrix",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "prix",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "produit",
+      "otherEntityRelationshipName": "mouvement",
+      "relationshipName": "produit",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210226200923",
+  "entityTableName": "mouvement",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

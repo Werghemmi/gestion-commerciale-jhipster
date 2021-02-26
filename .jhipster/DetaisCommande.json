@@ -1,0 +1,40 @@
+{
+  "name": "DetaisCommande",
+  "fields": [
+    {
+      "fieldName": "qteProduit",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "prix",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "produit",
+      "otherEntityRelationshipName": "detaisCommande",
+      "relationshipName": "produit",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "commande",
+      "otherEntityRelationshipName": "detaisCommande",
+      "relationshipName": "commande",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210226200123",
+  "entityTableName": "detais_commande",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

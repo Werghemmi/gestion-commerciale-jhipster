@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="factureAchat">
+            <h2><span>Facture Achat</span> {{ factureAchat.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Date Facture</span></dt>
+                <dd>
+                    <span>{{ factureAchat.dateFacture }}</span>
+                </dd>
+                <dt><span>Total HT</span></dt>
+                <dd>
+                    <span>{{ factureAchat.totalHT }}</span>
+                </dd>
+                <dt><span>Total TVA</span></dt>
+                <dd>
+                    <span>{{ factureAchat.totalTVA }}</span>
+                </dd>
+                <dt><span>Total TTC</span></dt>
+                <dd>
+                    <span>{{ factureAchat.totalTTC }}</span>
+                </dd>
+                <dt><span>Total Remise</span></dt>
+                <dd>
+                    <span>{{ factureAchat.totalRemise }}</span>
+                </dd>
+                <dt><span>Total Net</span></dt>
+                <dd>
+                    <span>{{ factureAchat.totalNet }}</span>
+                </dd>
+                <dt><span>Timbre Fiscale</span></dt>
+                <dd>
+                    <span>{{ factureAchat.timbreFiscale }}</span>
+                </dd>
+                <dt><span>Reglement Achat</span></dt>
+                <dd>
+                    <div *ngIf="factureAchat.reglementAchatId">
+                        <a [routerLink]="['/reglement-achat', factureAchat.reglementAchatId, 'view']">{{ factureAchat.reglementAchatId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/facture-achat', factureAchat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

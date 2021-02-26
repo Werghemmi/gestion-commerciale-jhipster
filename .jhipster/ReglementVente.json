@@ -1,0 +1,26 @@
+{
+  "name": "ReglementVente",
+  "fields": [
+    {
+      "fieldName": "dateReglement",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "typeReglement",
+      "fieldType": "TypeReglement",
+      "fieldValues": "VIREMENT,CHEQUE"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20210226200823",
+  "entityTableName": "reglement_vente",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
