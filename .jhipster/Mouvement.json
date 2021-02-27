@@ -8,7 +8,7 @@
     {
       "fieldName": "typeMvt",
       "fieldType": "TypeMouvement",
-      "fieldValues": "ACHAT,VENTE"
+      "fieldValues": "ACHAT,VENTE,INVENTAIRE"
     },
     {
       "fieldName": "qteMvt",

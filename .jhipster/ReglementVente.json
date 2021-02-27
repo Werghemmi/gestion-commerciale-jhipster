@@ -8,7 +8,7 @@
     {
       "fieldName": "typeReglement",
       "fieldType": "TypeReglement",
-      "fieldValues": "VIREMENT,CHEQUE"
+      "fieldValues": "VIREMENT,CHEQUE,LIQUIDE"
     }
   ],
   "relationships": [],
