@@ -5,12 +5,14 @@ enum Type {
 
 enum TypeReglement {
     VIREMENT,
-    CHEQUE
+    CHEQUE,
+    LIQUIDE
 }
 
 enum TypeMouvement {
     ACHAT,
-    VENTE
+    VENTE,
+    INVENTAIRE
 }
 
 entity Produit {
